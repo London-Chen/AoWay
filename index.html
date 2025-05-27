@@ -1,468 +1,320 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI写作工具导航站</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #2d3748;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            font-weight: 700;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .intro {
-            text-align: center;
-            color: #4a5568;
-            margin-bottom: 40px;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-        
-        .category {
-            margin-bottom: 40px;
-        }
-        
-        .category-title {
-            font-size: 1.8em;
-            color: #2d3748;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .category-icon {
-            font-size: 1.2em;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .tool-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .tool-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            border-color: #667eea;
-        }
-        
-        .tool-name {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 8px;
-        }
-        
-        .tool-desc {
-            color: #718096;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        .tool-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
-        }
-        
-        .tool-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        .highlight {
-            background: linear-gradient(45deg, #ffd89b, #19547b);
-            color: white;
-        }
-        
-        .highlight .tool-name,
-        .highlight .tool-desc {
-            color: white;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 40px 0;
-            padding: 20px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 15px;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2em;
-            font-weight: 700;
-            color: #667eea;
-        }
-        
-        .stat-label {
-            color: #4a5568;
-            font-size: 0.9em;
-        }
-        
-        .search-box {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .search-input {
-            width: 100%;
-            max-width: 500px;
-            padding: 15px 25px;
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
-            font-size: 1.1em;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        
-        .search-input:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>湖南澳维科技股份有限公司 | 膜分离技术引领者</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 AI写作工具导航站</h1>
-        <p class="intro">
-            精选AI写作工具，助力内容创作者提升效率。涵盖国内外主流大模型、专业写作工具和变现平台。
-        </p>
-        
-        <div class="search-box">
-            <input type="text" class="search-input" placeholder="🔍 搜索工具名称或功能..." id="searchInput">
+  <!-- 顶部导航 -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo"> 
+        <img src="logo.png" alt="澳维科技LOGO" height="48">
+      </div>
+      <nav>
+        <a href="#industry">行业应用 <i class="fas fa-chevron-down"></i></a>
+        <a href="#products">产品中心 <i class="fas fa-chevron-down"></i></a>
+        <a href="#about">关于我们 <i class="fas fa-chevron-down"></i></a>
+        <a href="#resources">资源中心 <i class="fas fa-chevron-down"></i></a>
+        <a href="#contact">联系我们</a>
+      </nav>
+      <div class="nav-right">
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-        
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">AI工具</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">4</div>
-                <div class="stat-label">主要分类</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">免费收录</div>
-            </div>
+        <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+        <div class="lang-selector">
+          <span>EN</span>
+          <i class="fas fa-chevron-down"></i>
         </div>
-        
-        <!-- 国外大模型工具 -->
-        <div class="category">
-            <h2 class="category-title">
-                <span class="category-icon">🌍</span>
-                国外大模型工具
-            </h2>
-            <div class="tools-grid">
-                <div class="tool-card highlight">
-                    <div class="tool-name">ChatGPT</div>
-                    <div class="tool-desc">OpenAI开发的强大对话AI，支持多种写作任务</div>
-                    <a href="https://chat.openai.com/" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card highlight">
-                    <div class="tool-name">Claude</div>
-                    <div class="tool-desc">Anthropic旗下AI助手，擅长长文本处理和分析</div>
-                    <a href="https://claude.ai/chats" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">Gemini</div>
-                    <div class="tool-desc">Google推出的多模态AI助手</div>
-                    <a href="https://gemini.google.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">Bing AI</div>
-                    <div class="tool-desc">微软必应搜索集成的AI助手</div>
-                    <a href="https://bingo.melikeme.cn/web/#/" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">Notion AI</div>
-                    <div class="tool-desc">集成在Notion中的AI写作助手</div>
-                    <a href="https://www.notion.so/help/guides/category/ai?ref=indigox.me" class="tool-link" target="_blank">立即访问</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 国内大模型工具 -->
-        <div class="category">
-            <h2 class="category-title">
-                <span class="category-icon">🇨🇳</span>
-                国内大模型工具
-            </h2>
-            <div class="tools-grid">
-                <div class="tool-card highlight">
-                    <div class="tool-name">Kimi</div>
-                    <div class="tool-desc">月之暗面开发，长文本处理能力强，基本免费使用</div>
-                    <a href="https://kimi.moonshot.cn/" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">文心一言</div>
-                    <div class="tool-desc">百度推出的大语言模型产品</div>
-                    <a href="https://wenxin.baidu.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">豆包</div>
-                    <div class="tool-desc">抖音旗下基于云雀大模型的AI助手</div>
-                    <a href="https://doubao.com/chat/" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">小悟空</div>
-                    <div class="tool-desc">字节跳动推出的AI创作工具</div>
-                    <a href="https://wukong.com/tool/mine" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">智谱AI</div>
-                    <div class="tool-desc">清华大学GLM大模型，支持多种AI应用</div>
-                    <a href="https://chatglm.cn" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">通义千问</div>
-                    <div class="tool-desc">阿里云推出的大语言模型</div>
-                    <a href="https://tongyi.aliyun.com/" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">腾讯元宝</div>
-                    <div class="tool-desc">腾讯混元大模型驱动的AI助手</div>
-                    <a href="https://yuanbao.tencent.com/chat/naQivTmsDa" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">讯飞星火</div>
-                    <div class="tool-desc">科大讯飞推出的认知大模型</div>
-                    <a href="https://xinghuo.xfyun.cn/desk" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">秘塔AI</div>
-                    <div class="tool-desc">专注搜索和问答的AI工具</div>
-                    <a href="https://metaso.cn/?s=sbdpc1" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">360智脑</div>
-                    <div class="tool-desc">360公司推出的大语言模型</div>
-                    <a href="https://ai.360.com/" class="tool-link" target="_blank">立即访问</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 专业写作工具 -->
-        <div class="category">
-            <h2 class="category-title">
-                <span class="category-icon">✍️</span>
-                专业写作工具
-            </h2>
-            <div class="tools-grid">
-                <div class="tool-card highlight">
-                    <div class="tool-name">知网AI</div>
-                    <div class="tool-desc">学术论文写作神器，背靠知网强大数据库</div>
-                    <a href="https://aidoc.cnki.net/createDoc/report" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card highlight">
-                    <div class="tool-name">橙篇AI</div>
-                    <div class="tool-desc">百度文库出品，专业长文写作工具</div>
-                    <a href="https://cp.baidu.com/" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">火山写作</div>
-                    <div class="tool-desc">字节跳动推出的AI智能写作平台</div>
-                    <a href="https://writingo.net/invitation?key=85Smpq%5E%26g8U5" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">讯飞写作</div>
-                    <div class="tool-desc">科大讯飞AI写作工具，支持对话写作</div>
-                    <a href="https://huixie.iflyrec.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">秘塔写作猫</div>
-                    <div class="tool-desc">AI写作模板和智能润色工具</div>
-                    <a href="https://xiezuocat.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">光速写作</div>
-                    <div class="tool-desc">作业帮旗下，支持全文生成和PPT制作</div>
-                    <a href="https://guangsuxie.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">深言达意</div>
-                    <div class="tool-desc">根据模糊描述找词找句的智能写作工具</div>
-                    <a href="https://www.shenyandayi.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">腾讯Effidit</div>
-                    <div class="tool-desc">智能纠错、文本补全和改写工具</div>
-                    <a href="https://effidit.qq.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">笔灵AI</div>
-                    <div class="tool-desc">一键生成工作计划、文案方案</div>
-                    <a href="https://ibiling.cn" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">5118 SEO工具</div>
-                    <div class="tool-desc">快速生成高质量SEO标题和Meta描述</div>
-                    <a href="https://www.5118.com/seometa" class="tool-link" target="_blank">立即访问</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 小说创作平台 -->
-        <div class="category">
-            <h2 class="category-title">
-                <span class="category-icon">📚</span>
-                小说创作与变现平台
-            </h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-name">WriteWise</div>
-                    <div class="tool-desc">喜马拉雅小说创作工具</div>
-                    <a href="https://www.ximalaya.com/gatekeeper/write-wise-web?ref=ai-bot.cn" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">易撰</div>
-                    <div class="tool-desc">专注自媒体内容创作</div>
-                    <a href="https://www.yizhuan5.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">Giiso写作机器人</div>
-                    <div class="tool-desc">支持写作、风格转换、文生图</div>
-                    <a href="https://www.giiso.com" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">稿定AI</div>
-                    <div class="tool-desc">设计平台推出的AI写作工具</div>
-                    <a href="https://www.gaoding.com/ai" class="tool-link" target="_blank">立即访问</a>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-name">无限小说网</div>
-                    <div class="tool-desc">免费小说下载网站，适合学习参考</div>
-                    <a href="http://www.txt97.org/" class="tool-link" target="_blank">立即访问</a>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    
-    <script>
-        // 搜索功能
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const toolCards = document.querySelectorAll('.tool-card');
-            
-            toolCards.forEach(card => {
-                const toolName = card.querySelector('.tool-name').textContent.toLowerCase();
-                const toolDesc = card.querySelector('.tool-desc').textContent.toLowerCase();
-                
-                if (toolName.includes(searchTerm) || toolDesc.includes(searchTerm)) {
-                    card.style.display = 'block';
-                    // 高亮搜索结果
-                    if (searchTerm) {
-                        card.style.border = '2px solid #667eea';
-                        card.style.transform = 'scale(1.02)';
-                    } else {
-                        card.style.border = '2px solid transparent';
-                        card.style.transform = 'scale(1)';
-                    }
-                } else {
-                    card.style.display = searchTerm ? 'none' : 'block';
-                    card.style.border = '2px solid transparent';
-                    card.style.transform = 'scale(1)';
-                }
-            });
-        });
+  </header>
+
+  <!-- 首屏大图+Slogan -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>专注膜分离技术的高新技术企业</h1>
+        <p class="subtitle">Pioneer in Membrane Technology</p>
+        <p>致力于为全球客户提供高效、可靠的膜分离解决方案</p>
+        <a href="#contact" class="cta-btn">联系我们</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行业应用 -->
+  <section id="industry" class="section industry">
+    <div class="container">
+      <h2 class="section-title">行业应用</h2>
+      <p class="section-desc">
+        我们的产品覆盖多种膜分离应用领域，包括石化、食品加工、生物制药、油气等行业。作为创新型膜技术企业，我们致力于解决这些行业生产过程中的液体处理难题。
+      </p>
+      
+      <div class="industry-cards">
+        <div class="industry-card">
+          <img src="images/paper.jpg" alt="造纸行业">
+          <div class="card-content">
+            <h3>造纸行业</h3>
+            <p>我们的膜技术为造纸行业提供了多种解决方案，帮助降低能耗、提高效率。</p>
+            <a href="#" class="learn-more">了解更多</a>
+          </div>
+        </div>
         
-        // 统计工具数量
-        const totalTools = document.querySelectorAll('.tool-card').length;
-        document.querySelector('.stat-number').textContent = totalTools + '+';
+        <div class="industry-card">
+          <img src="images/power.jpg" alt="电力行业">
+          <div class="card-content">
+            <h3>电力行业</h3>
+            <p>我们的膜技术在电力行业中广泛应用，帮助提高发电效率，降低环境影响。</p>
+            <a href="#" class="learn-more">了解更多</a>
+          </div>
+        </div>
         
-        // 添加点击统计
-        document.querySelectorAll('.tool-link').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('访问工具:', this.parentElement.querySelector('.tool-name').textContent);
-            });
-        });
-    </script>
+        <div class="industry-card">
+          <img src="images/industrial.jpg" alt="工业制造">
+          <div class="card-content">
+            <h3>工业制造</h3>
+            <p>我们的膜技术为工业制造提供了高效的液体过滤解决方案，确保生产过程顺畅。</p>
+            <a href="#" class="learn-more">了解更多</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pagination">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 为什么选择澳维科技 -->
+  <section id="why-us" class="section why-us">
+    <div class="container">
+      <h2 class="section-title">为什么选择澳维科技</h2>
+      <p class="section-desc">您可以信赖我们专业的膜分离产品，专为满足各种应用需求而设计。</p>
+      
+      <div class="why-us-content">
+        <div class="why-us-image">
+          <img src="images/factory.jpg" alt="澳维科技工厂">
+        </div>
+        <div class="why-us-text">
+          <p>
+            澳维科技生产的高品质膜分离产品，在全球范围内获得认可。我们拥有先进的生产设备和严格的质量控制系统，确保每一件产品都符合最高标准。
+          </p>
+          <p>
+            我们的研发团队由多名博士、硕士及海外归国人才组成，不断创新，开发更高效、更可靠的膜分离技术。我们拥有45项专利，年产能超3000万平方米，产品通过多项国际认证。
+          </p>
+          <div class="why-us-buttons">
+            <a href="#" class="btn btn-primary">了解更多</a>
+            <a href="#" class="btn btn-secondary">联系我们</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品优势 -->
+  <section id="benefits" class="section benefits">
+    <div class="container">
+      <h2 class="section-title">从我们的膜分离系统中获益终身</h2>
+      <p class="section-desc">我们提供高品质定制膜分离系统，满足您的各种应用需求</p>
+      
+      <div class="benefits-content">
+        <div class="benefits-text">
+          <a href="#" class="cta-btn">联系我们</a>
+        </div>
+        <div class="benefits-image">
+          <img src="images/filtration-system.jpg" alt="膜分离系统">
+        </div>
+      </div>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <h3>1000+</h3>
+          <p>成功案例</p>
+        </div>
+        <div class="stat-item">
+          <h3>300万 m³/d</h3>
+          <p>处理能力</p>
+        </div>
+        <div class="stat-item">
+          <h3>50+</h3>
+          <p>专利技术</p>
+        </div>
+        <div class="stat-item">
+          <h3>>30%</h3>
+          <p>能源节约</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 知识中心 -->
+  <section id="knowledge" class="section knowledge">
+    <div class="container">
+      <div class="knowledge-header">
+        <h2>知识中心</h2>
+        <div class="knowledge-nav">
+          <button class="nav-prev"><i class="fas fa-chevron-left"></i></button>
+          <button class="nav-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+      
+      <div class="knowledge-content">
+        <div class="knowledge-card">
+          <img src="images/filter-element.jpg" alt="膜元件">
+          <div class="card-content">
+            <h3>劣质膜元件的巨大风险</h3>
+            <p>了解为什么选择高质量膜元件对于系统性能至关重要，以及如何避免常见的膜元件问题。</p>
+            <a href="#" class="btn btn-primary">了解更多</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服务流程 -->
+  <section id="service" class="section service">
+    <div class="container">
+      <h2 class="section-title">我们的服务流程</h2>
+      
+      <div class="service-steps">
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>需求收集</h3>
+          <p>我们首先了解您的具体需求，包括水质条件、处理目标和系统要求。</p>
+          <a href="#" class="learn-more">了解更多</a>
+        </div>
+        
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3>方案设计</h3>
+          <p>我们的工程师会根据您的需求，设计最适合的膜分离解决方案。</p>
+          <a href="#" class="learn-more">了解更多</a>
+        </div>
+        
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-truck-loading"></i>
+          </div>
+          <h3>设备交付</h3>
+          <p>我们确保设备按时交付，并提供专业的安装指导和调试服务。</p>
+          <a href="#" class="learn-more">了解更多</a>
+        </div>
+        
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>售后支持</h3>
+          <p>我们提供全面的售后服务，包括技术支持、维护培训和备件供应。</p>
+          <a href="#" class="learn-more">了解更多</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title">联系我们</h2>
+      <h3 class="contact-subtitle">需要技术支持？</h3>
+      
+      <div class="contact-buttons">
+        <a href="#" class="cta-btn">联系我们</a>
+        <a href="#" class="btn btn-outline">在线咨询</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 底部导航 -->
+  <footer>
+    <div class="container">
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>行业应用</h4>
+          <ul>
+            <li><a href="#">化工/煤化工</a></li>
+            <li><a href="#">钢铁</a></li>
+            <li><a href="#">电力</a></li>
+            <li><a href="#">光伏/新能源</a></li>
+            <li><a href="#">半导体</a></li>
+            <li><a href="#">市政环保</a></li>
+            <li><a href="#">食品饮料</a></li>
+            <li><a href="#">生物制药</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>产品中心</h4>
+          <ul>
+            <li><a href="#">反渗透膜</a></li>
+            <li><a href="#">纳滤膜</a></li>
+            <li><a href="#">超滤膜</a></li>
+            <li><a href="#">膜元件配件</a></li>
+            <li><a href="#">膜系统</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>关于澳维科技</h4>
+          <ul>
+            <li><a href="#">公司简介</a></li>
+            <li><a href="#">技术优势</a></li>
+            <li><a href="#">生产能力</a></li>
+            <li><a href="#">国际认证</a></li>
+            <li><a href="#">发展历程</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>知识中心</h4>
+          <ul>
+            <li><a href="#">技术文章</a></li>
+            <li><a href="#">应用案例</a></li>
+            <li><a href="#">常见问题</a></li>
+            <li><a href="#">产品手册</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright">
+          © 2024 湖南澳维科技股份有限公司 版权所有
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 在线客服 -->
+  <div class="chat-widget">
+    <div class="chat-button">
+      <i class="fas fa-comments"></i>
+      <span>在线咨询</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
